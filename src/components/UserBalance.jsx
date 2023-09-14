@@ -8,9 +8,9 @@ const UserBalance = () => {
     setGlobalState({ ...globalState, steamBalance });
   };
   //formatter
-  const currencyFormatter = new Intl.NumberFormat("en-US", {
+  const currencyFormatter = new Intl.NumberFormat("pt-BR", {
     style: "currency",
-    currency: globalState.userCurrency,
+    currency: globalState.userCurrency || "USD",
   });
   //states
   const [setSteamBalanceModal, setSetSteamBalanceModal] = useState(false);

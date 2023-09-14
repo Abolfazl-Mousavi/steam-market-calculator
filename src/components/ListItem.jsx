@@ -19,7 +19,7 @@ const ListItem = ({ item, onEdit, onDelete }) => {
   const handleDeleteClick = () => {
     onDelete(item.id);
   };
-  const currencyFormatter = new Intl.NumberFormat("en-US", {
+  const currencyFormatter = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: globalState.userCurrency,
   });

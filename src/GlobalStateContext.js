@@ -5,8 +5,8 @@ const GlobalStateContext = createContext();
 
 export const GlobalStateProvider = ({ children }) => {
   const [globalState, setGlobalState] = useState({
-    userCurrency: localStorage.getItem("USER_CURRENCY"),
-    steamBalance: localStorage.getItem("BALANCE"),
+    userCurrency: localStorage.getItem("USER_CURRENCY") || "USD",
+    steamBalance: localStorage.getItem("BALANCE") || 0,
   });
 
   return (
