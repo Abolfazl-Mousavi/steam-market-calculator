@@ -19,7 +19,7 @@ const ListItem = ({ item, onEdit, onDelete }) => {
   const handleDeleteClick = () => {
     onDelete(item.id);
   };
-  const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: globalState.userCurrency,
   });
@@ -51,7 +51,6 @@ const ListItem = ({ item, onEdit, onDelete }) => {
           <span>{item.itemName}</span>
           <span>{currencyFormatter.format(item.price)}</span>
           <div>
-        
             <button onClick={handleEditClick}>🖍</button>
             <button onClick={handleDeleteClick}>✖</button>
           </div>

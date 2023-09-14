@@ -14,7 +14,7 @@ const CurrencyConverterCard = () => {
   const [convertingRatio, setConvertingRatio] = useState(null);
   const [multiplyer, setMultiplyer] = useState(0);
 
-  const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: toBeConverted,
   });

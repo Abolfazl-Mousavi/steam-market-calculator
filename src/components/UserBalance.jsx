@@ -8,7 +8,7 @@ const UserBalance = () => {
     setGlobalState({ ...globalState, steamBalance });
   };
   //formatter
-  const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: globalState.userCurrency,
   });
