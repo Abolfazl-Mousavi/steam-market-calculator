@@ -17,7 +17,7 @@ function App() {
         <CurrencyConverterCard />
        <Cart/>
       </main>
-      <div className="h-[500px]"></div>
+      <div className="h-[100px]"></div>
     </>
   );
 }

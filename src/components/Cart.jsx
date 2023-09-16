@@ -8,10 +8,15 @@ const Cart = () => {
 
   const [calculateBalance, setCalculateBalance] = useState(true);
   const [calculateWithTF2Key, setCalculateWithTF2Key] = useState(false);
+  const [taxFree, setTaxFree] = useState(false);
 
   const [totalBuyValue, setTotalBuyValue] = useState();
   const [totalSellValue, setTotalSellValue] = useState();
 
+  const currencyFormatter = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: globalState.userCurrency,
+  });
   const Calculated = () => {
     let totalValue = totalSellValue - totalBuyValue;
     if (calculateBalance) {
@@ -20,6 +25,8 @@ const Cart = () => {
     }
     if (calculateWithTF2Key) {
       totalValue = totalValue / globalState.TF2KeyPrice;
+    } else {
+      totalValue = currencyFormatter.format(totalValue);
     }
     return totalValue;
   };
@@ -37,11 +44,16 @@ const Cart = () => {
           isChecked={calculateWithTF2Key}
           innerText={"Calculate With TF2 Key"}
         />
+        <Checkbox
+          setIsChecked={setTaxFree}
+          isChecked={taxFree}
+          innerText={"TaxFree"}
+        />
         <div>your Balance will be: {Calculated()}</div>
       </div>
       <div className=" flex justify-around mt-5 gap-5">
         <ToBuySellCart buy sum={setTotalBuyValue} />
-        <ToBuySellCart sell sum={setTotalSellValue} />
+        <ToBuySellCart sell sum={setTotalSellValue} tax={taxFree} />
       </div>
     </section>
   );

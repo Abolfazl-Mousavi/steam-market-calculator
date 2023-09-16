@@ -3,10 +3,10 @@ import ListItem from "./ListItem";
 import getTF2KeyPrice from "../api/getTF2KeyPrice";
 import { useGlobalState } from "../GlobalStateContext";
 
-const ToBuySellCart = ({ buy, sell, sum }) => {
+const ToBuySellCart = ({ buy, sell, sum, tax }) => {
   const { globalState, setGlobalState } = useGlobalState();
   const [items, setItems] = useState([]);
-  const [newItem, setNewItem] = useState({ itemName: "", price: 0 });
+  const [newItem, setNewItem] = useState({ itemName: "", price: null });
   const [TF2KeyPrice, setTF2KeyPrice] = useState(61.28);
   const handleEdit = (id, updatedItem) => {
     const updatedItems = items.map((item) =>
@@ -65,9 +65,9 @@ const ToBuySellCart = ({ buy, sell, sum }) => {
     const total = items.reduce((accumulator, currentItem) => {
       return accumulator + currentItem.price;
     }, 0);
-    sum(total);
+    sum(tax ? total : total / 1.15);
     return () => {};
-  }, [items]);
+  }, [items,tax]);
 
   return (
     <div className=" flex flex-col pb-2 items-center bg-slate-100 rounded-md">
