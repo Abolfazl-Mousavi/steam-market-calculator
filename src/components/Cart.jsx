@@ -52,7 +52,7 @@ const Cart = () => {
         <div>your Balance will be: {Calculated()}</div>
       </div>
       <div className=" flex justify-around mt-5 gap-5">
-        <ToBuySellCart buy sum={setTotalBuyValue} />
+        <ToBuySellCart buy sum={setTotalBuyValue} tax={false} />
         <ToBuySellCart sell sum={setTotalSellValue} tax={taxFree} />
       </div>
     </section>
