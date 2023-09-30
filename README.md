@@ -20,6 +20,10 @@ first choose your steam currency then add your balance by clicking on it.then ju
 
 - clone the project and run npm install
 
+### Known issues
+
+- Endpoint steamcommunity.com is blocked by CORS and it should be hanlded from server side. (just turn off your brwosers CORS and it will be okey)
+
 ## Help
 
 Any advise for common problems or issues.
