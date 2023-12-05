@@ -2,6 +2,8 @@
 
 in this project you can calculate how much money do you need to buy a item/game in steam
 
+![steamCalculator](https://i.ibb.co/m4yT6mM/screencapture-steam-market-calculator-netlify-app-2023-12-06-01-30-56.png)
+
 ## Description
 
 I used a rapid api currency exchanger api. and a simple cart so you know how much money you need for a item in market
