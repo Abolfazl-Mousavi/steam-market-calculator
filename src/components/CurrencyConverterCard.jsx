@@ -21,7 +21,7 @@ const CurrencyConverterCard = () => {
   useEffect(() => {
     setConvertingRatio(null);
     getCurrencyRatio(fromCurrencyToBeConverted, toBeConverted).then((data) => {
-      setConvertingRatio(data);
+      setConvertingRatio(data.rate);
     });
     return () => {};
   }, [fromCurrencyToBeConverted, toBeConverted]);
