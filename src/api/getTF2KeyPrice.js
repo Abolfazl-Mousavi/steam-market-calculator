@@ -3,10 +3,9 @@ import SteamSupportedCurrencys from "../constants/SteamSupportedCurrencys";
 
 export default async function getTF2KeyPrice(currency) {
   try {
-    const apiUrl = `https://steamcommunity.com/market/priceoverview/?currency=${findCurrencyIdWithAcronym(
+    const apiUrl =  `https://api.allorigins.win/get?url=${encodeURIComponent(`https://steamcommunity.com/market/priceoverview/?currency=${findCurrencyIdWithAcronym(
       currency
-    )}&appid=440&market_hash_name=Mann%20Co.%20Supply%20Crate%20Key`;
-
+    )}&appid=440&market_hash_name=Mann%20Co.%20Supply%20Crate%20Key`)}`;
     const response = await axios.get(apiUrl);
     return response.data;
   } catch (error) {
@@ -24,3 +23,8 @@ const findCurrencyIdWithAcronym = (currencyAcronym) => {
 
   return filteredItem ? filteredItem.id : "1";
 };
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data.contents))
+    .catch(error => console.error('Error:', error));
