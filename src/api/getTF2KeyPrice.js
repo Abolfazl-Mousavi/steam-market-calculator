@@ -9,7 +9,8 @@ export default async function getTF2KeyPrice(currency) {
       )}&appid=440&market_hash_name=Mann%20Co.%20Supply%20Crate%20Key`
     )}`;
     const response = await axios.get(apiUrl);
-    return response.data.contents;
+
+    return JSON.parse(response.data.contents);
   } catch (error) {
     console.error(error.response.data);
   }

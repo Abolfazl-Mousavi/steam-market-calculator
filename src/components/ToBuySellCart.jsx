@@ -7,7 +7,7 @@ const ToBuySellCart = ({ buy, sell, sum, taxFreeProp }) => {
   const { globalState, setGlobalState } = useGlobalState();
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState({ itemName: "", price: null });
-  const [TF2KeyPrice, setTF2KeyPrice] = useState(61.28);
+  const [TF2KeyPrice, setTF2KeyPrice] = useState(2.69);
   const handleEdit = (id, updatedItem) => {
     const updatedItems = items.map((item) =>
       item.id === id ? { ...item, ...updatedItem } : item
@@ -17,6 +17,7 @@ const ToBuySellCart = ({ buy, sell, sum, taxFreeProp }) => {
   function setGlobalTF2KeyPrice(TF2KeyPrice) {
     let price = parseFloat(removeUntilNumber(TF2KeyPrice.replace(",", ".")));
     setGlobalState({ ...globalState, TF2KeyPrice: price });
+    console.log(price);
     setTF2KeyPrice(price);
   }
   function removeUntilNumber(inputString) {
@@ -56,6 +57,7 @@ const ToBuySellCart = ({ buy, sell, sum, taxFreeProp }) => {
   useEffect(() => {
     sell &&
       getTF2KeyPrice(globalState.userCurrency).then((data) => {
+        console.log(data);
         setGlobalTF2KeyPrice(data.lowest_price);
       });
     return () => {};

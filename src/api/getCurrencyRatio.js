@@ -14,7 +14,7 @@ export default async function getCurrencyRatio(from, to) {
       q: "1.0",
     },
     headers: {
-      "X-RapidAPI-Key": process.env.CURRENCY_CONVERTER_RAPID_API_KEY,
+      "X-RapidAPI-Key": `871eaed90amsh3ffdf74ffd98d89p169ee0jsn7af99fe00c1c`,
       "X-RapidAPI-Host": "currency-converter241.p.rapidapi.com",
     },
   };
