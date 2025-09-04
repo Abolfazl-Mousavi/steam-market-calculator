@@ -24,7 +24,7 @@ const Cart = () => {
         parseFloat(globalState.steamBalance) + (totalSellValue - totalBuyValue);
     }
     if (calculateWithTF2Key) {
-      totalValue = totalValue / globalState.TF2KeyPrice;
+      totalValue = totalValue / (globalState.TF2KeyPrice / 1.15);
     } else {
       totalValue = currencyFormatter.format(totalValue);
     }
